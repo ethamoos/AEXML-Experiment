@@ -51,7 +51,6 @@ struct ContentView: View {
     
     var body: some View {
         
-//        let allTheDogs = animals.dogsDict
         
         VStack(alignment: .leading) {
             
@@ -81,7 +80,6 @@ struct ContentView: View {
             
         
             Text("XML Data is:")
-            //            Text(String(describing: animals.xmlDoc))
             
             Capsule()
                  .fill(Color.blue)
@@ -97,20 +95,18 @@ struct ContentView: View {
             //    #################################################################################
             
             
-            //
-                        Button(action: {
-                            print("updateGetAllDogs button was tapped")
-//                            writeXML()
-                            
-                            xmlString = animals.xmlDoc.xml
-
-                            animals.updateGetAllDogs(xmlContent: xmlString)
-                        }) {
-                            HStack(spacing: 10) {
-                                Image(systemName: "pencil")
-                                Text("Update Dogs")
-                            }
-                        }
+//            Button(action: {
+//                print("updateGetAllDogs button was tapped")
+//                
+//                xmlString = animals.xmlDoc.xml
+//                
+//                animals.updateGetAllDogs(xmlContent: xmlString)
+//            }) {
+//                HStack(spacing: 10) {
+//                    Image(systemName: "pencil")
+//                    Text("Update Dogs")
+//                }
+//            }
             //
             //
             //            Button(action: {
@@ -195,6 +191,7 @@ struct ContentView: View {
             }
 
         } .onAppear {
+            
             animals.getAllDogs(xmlContent: xmlStringAnimals)
             print("getAllDogs")
         }
@@ -246,11 +243,8 @@ struct ContentView: View {
         do {
             xmlDoc = try AEXMLDocument(xml: data)
 //            print("XML doc is:")
-//            print(xmlDoc.root.string)
 //            print(xmlDoc.xml)
             
-            // prints Optional(AEXML.AEXMLError.elementNotFound)
-            // print(xmlDoc["NotExistingElement"].error)
         }
         catch {
             print("\(error)")
@@ -330,7 +324,6 @@ struct ContentView: View {
         self.separationLine()
         print("Getting doc children")
         
-        
         for child in xmlDoc.root.children {
             print("Child is:")
             print(child.name)
@@ -375,8 +368,6 @@ struct ContentView: View {
         print(xmlDoc.root[""])
         
     }
-    //}
-    
     
     //
     
@@ -385,19 +376,19 @@ struct ContentView: View {
     //    ##################################################
       
     
-    func getAllCats(xmlContent: String) {
-        self.separationLine()
-        print("Getting first element")
-        readXMLDataFromString(xmlContent: xmlContent)
-        print("Getting all cats!")
-        if let cats = xmlDoc.root["cats"]["cat"].all {
-            for cat in cats {
-                if let name = cat.value {
-                    print(name)
-                }
-            }
-        }
-    }
+//    func getAllCats(xmlContent: String) {
+//        self.separationLine()
+//        print("Getting first element")
+//        readXMLDataFromString(xmlContent: xmlContent)
+//        print("Getting all cats!")
+//        if let cats = xmlDoc.root["cats"]["cat"].all {
+//            for cat in cats {
+//                if let name = cat.value {
+//                    print(name)
+//                }
+//            }
+//        }
+//    }
     
     func getAllDogs(xmlContent: String) {
         
@@ -451,19 +442,19 @@ struct ContentView: View {
     
     
     
-    func getAllDogsData(xmlContent: AEXMLDocument) {
-        self.separationLine()
-        print("Getting first element")
-//        readUpdatedData(updatedContent: xmlContent)
-        print("Getting all dogs!")
-        if let dogs = xmlDoc.root["dogs"]["dog"].all {
-            for dog in dogs {
-                if let name = dog.value {
-                    print(name)
-                }
-            }
-        }
-    }
+//    func getAllDogsData(xmlContent: AEXMLDocument) {
+//        self.separationLine()
+//        print("Getting first element")
+////        readUpdatedData(updatedContent: xmlContent)
+//        print("Getting all dogs!")
+//        if let dogs = xmlDoc.root["dogs"]["dog"].all {
+//            for dog in dogs {
+//                if let name = dog.value {
+//                    print(name)
+//                }
+//            }
+//        }
+//    }
     
     func printDogsByColor(color: String) {
         // prints Villy, Spot
@@ -495,15 +486,15 @@ struct ContentView: View {
         }
     }
     
-    func addCat(name: String, color: String, breed: String, xmlContent: String) {
-        readXMLDataFromString(xmlContent: xmlContent)
-        
-        let cats = xmlDoc.root["cats"]
-        let newCat = cats.addChild(name: name)
-        //        print("Cats are:")
-        //        print(cats)
-        getAllCats(xmlContent: xmlContent)
-    }
+//    func addCat(name: String, color: String, breed: String, xmlContent: String) {
+//        readXMLDataFromString(xmlContent: xmlContent)
+//        
+//        let cats = xmlDoc.root["cats"]
+//        let newCat = cats.addChild(name: name)
+//        //        print("Cats are:")
+//        //        print(cats)
+//        getAllCats(xmlContent: xmlContent)
+//    }
     
     //    ##################################################
     //    ##################################################
@@ -529,15 +520,7 @@ struct ContentView: View {
 
     }
     
-    //        print("newDogs is:\(newDogs)")
-    //
-    //        let newDoc = String(describing: xmlDoc.root.addChild(newDogs))
-    //        self.separationLine()
-    //        print("newDoc is:\(String(describing: newDoc))")
-    
-    //        getAllDogs(xmlContent: newDoc)
-    
-    
+
     
     //    ##################################################
     //          addChild
@@ -556,12 +539,9 @@ struct ContentView: View {
         ducks.addChild(name: "duck", value: "Scrooge")
         
         print("updatedContent is:\(xmlDoc.root.string)")
-        //        xmlDoc.root["ducks"].children.all.string
         
         let animalsCount = xmlDoc.root.children.count
-//        self.updateXMLData(updatedContent: xmlDoc)
-        //            XCTAssertEqual(animalsCount, 3, "Should be able to add child elements to an element.")
-        //            XCTAssertEqual(exampleDocument.root["ducks"]["duck"].last!.string, "Scrooge", "Should be able to iterate ducks now.")
+
     }
     
     
@@ -596,7 +576,7 @@ struct ContentView: View {
     
     
     //    ##################################################
-    
+    //    addAnimalChildren
     //    ##################################################
     
     func addAnimalChildren(xmlContent: String) {
@@ -615,51 +595,17 @@ struct ContentView: View {
         print("Add new child nodes")
         
         xmlDoc.root.addChildren(animals)
-        
-//        updatedXmlDoc = xmlDoc
-        
+                
         animalsCount = xmlDoc.root.children.count
         
 //        getDocChildrenData(xmlContent: updatedXmlDoc)
-        
-        
-        
+                
         //            XCTAssertEqual(animalsCount, 5, "Should be able to add children elements to an element.")
     }
     
     //    ##################################################
-    
+    //    addAnimalDogChildren
     //    ##################################################
-    
-    func addAnimalChildren2(xmlContent: String) {
-        
-        readXMLDataFromString(xmlContent: xmlContent)
-        self.separationLine()
-        print("Running addChildren")
-        
-        let animals: [AEXMLElement] = [
-            AEXMLElement(name: "dinosaurs"),
-            AEXMLElement(name: "birds"),
-            AEXMLElement(name: "bugs"),
-        ]
-        
-        let ducks = xmlDoc.root.addChild(name: "ducks")
-        ducks.addChild(name: "duck", value: "Donald")
-        
-        print("Add new child nodes")
-        xmlDoc.root.addChildren(animals)
-//        updatedXmlDoc = xmlDoc
-        
-        let animalsCount = xmlDoc.root.children.count
-        
-//        getDocChildrenData(xmlContent: updatedXmlDoc)
-        
-        //            XCTAssertEqual(animalsCount, 5, "Should be able to add children elements to an element.")
-    }
-    
-    
-    
-    
     
     
     func addAnimalDogChildren(xmlContent: String) {
