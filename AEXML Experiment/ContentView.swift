@@ -26,7 +26,6 @@ let xmlStringAnimals: String = """
         <cat breed="Siberian" color="lightgray">Tinna</cat>
         <cat breed="Domestic" color="darkgray">Rose</cat>
         <cat breed="Domestic" color="yellow">Caesar</cat>
-        <cat></cat>
     </cats>
     <dogs>
         <dog breed="Bull Terrier" color="white">Villy</dog>
@@ -44,6 +43,8 @@ struct ContentView: View {
     @State var newAnimalName: String = ""
     @State var newAnimalColour: String = ""
     @State var newAnimalBreed: String = ""
+    @State var newNodeName: String = ""
+    @State var newChildName: String = ""
     @State var selection = String("")
     @State var xmlString = ""
     
@@ -159,6 +160,17 @@ struct ContentView: View {
                 
                 Button(action: {
                     animals.separationLine()
+                    print("Add child animals")
+                    animals.addChildWithAttributes(xmlContent: xmlStringAnimals)
+                }) {
+                    HStack {
+                        Image(systemName: "plus.circle")
+                        Text("Add Child with Attributes")
+                    }
+                }
+                
+                Button(action: {
+                    animals.separationLine()
                     print("Add multiple children animals")
                     animals.addAnimalChildren(xmlContent: xmlStringAnimals)
                 }) {
@@ -173,15 +185,29 @@ struct ContentView: View {
             Divider()
             
             LazyVGrid(columns: columns) {
+                TextField("Node", text: self.$newNodeName)
+                TextField("Child", text: self.$newChildName)
                 TextField("Name", text: self.$newAnimalName)
                 TextField("Colour", text: self.$newAnimalColour)
                 TextField("Breed", text: self.$newAnimalBreed)
                 
             
-            Button(action: {
+//            Button(action: {
+//                print("-----------------------------")
+//                print("addDog button was tapped")
+//                animals.addDog(name: newAnimalName, color: newAnimalColour, breed: newAnimalBreed, xmlContent: xmlStringAnimals)
+//            }) {
+//                HStack {
+//                    Image(systemName: "dog.fill")
+//                    Text("Add Dog")
+//                }            }
+//                
+                Button(action: {
                 print("-----------------------------")
                 print("addDog button was tapped")
-                animals.addDog(name: newAnimalName, color: newAnimalColour, breed: newAnimalBreed, xmlContent: xmlStringAnimals)
+//                animals.addDog(name: newAnimalName, color: newAnimalColour, breed: newAnimalBreed, xmlContent: xmlStringAnimals)
+                    
+                    animals.addChildWithAttributesGeneric(node: newNodeName, childName: newChildName, name: newAnimalName, color: newAnimalColour, breed: newAnimalBreed, xmlContent: xmlStringAnimals)
             }) {
                 HStack {
                     Image(systemName: "dog.fill")
@@ -421,7 +447,6 @@ struct ContentView: View {
                 if let name = dog.value {
                     print("Dog has a name:\(name)")
                     
-                    
                     if let name = dogsDict[name]  {
                         print("Dog already in list")
                     } else {
@@ -573,6 +598,30 @@ struct ContentView: View {
         //            XCTAssertEqual(lastCat.attributes["color"], "orange", "Should be able to get attribute value from added element.")
         //            XCTAssertEqual(penultDog.string, "Kika", "Should be able to add child with attributes without overwrites existing elements. (Github Issue #28)")
     }
+    
+    func addChildWithAttributesGeneric(node: String, childName: String, name: String, color: String, breed: String,xmlContent: String) {
+        
+        readXMLDataFromString(xmlContent: xmlContent)
+        self.separationLine()
+        print("addDog to data")
+        
+        let node = xmlDoc.root[node]
+        
+        node.addChild(name: childName, value: name, attributes: ["breed" : breed, "color" : color])
+        
+//        let catsCount = cats["cat"].count
+//        let dogsCount = dogs["dog"].count
+//        
+//        let lastCat = cats["cat"].last!
+//        let penultDog = dogs.children[3]
+        
+        //            XCTAssertEqual(catsCount, 5, "Should be able to add child element with attributes to an element.")
+        //            XCTAssertEqual(dogsCount, 5, "Should be able to add child element with attributes to an element.")
+        //
+        //            XCTAssertEqual(lastCat.attributes["color"], "orange", "Should be able to get attribute value from added element.")
+        //            XCTAssertEqual(penultDog.string, "Kika", "Should be able to add child with attributes without overwrites existing elements. (Github Issue #28)")
+    }
+    
     
     
     //    ##################################################
