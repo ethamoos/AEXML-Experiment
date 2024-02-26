@@ -14,6 +14,7 @@
 		A8E404EC2B89232C000994CF /* AEXML_ExperimentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E404EB2B89232C000994CF /* AEXML_ExperimentTests.swift */; };
 		A8E404F62B89232C000994CF /* AEXML_ExperimentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E404F52B89232C000994CF /* AEXML_ExperimentUITests.swift */; };
 		A8E404F82B89232C000994CF /* AEXML_ExperimentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E404F72B89232C000994CF /* AEXML_ExperimentUITestsLaunchTests.swift */; };
+		A8E405062B892357000994CF /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = A8E405052B892357000994CF /* AEXML */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8E405062B892357000994CF /* AEXML in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +147,9 @@
 			dependencies = (
 			);
 			name = "AEXML Experiment";
+			packageProductDependencies = (
+				A8E405052B892357000994CF /* AEXML */,
+			);
 			productName = "AEXML Experiment";
 			productReference = A8E404D62B892329000994CF /* AEXML Experiment.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +222,9 @@
 				Base,
 			);
 			mainGroup = A8E404CD2B892329000994CF;
+			packageReferences = (
+				A8E405042B892357000994CF /* XCRemoteSwiftPackageReference "AEXML" */,
+			);
 			productRefGroup = A8E404D72B892329000994CF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -617,6 +625,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A8E405042B892357000994CF /* XCRemoteSwiftPackageReference "AEXML" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tadija/AEXML.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A8E405052B892357000994CF /* AEXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8E405042B892357000994CF /* XCRemoteSwiftPackageReference "AEXML" */;
+			productName = AEXML;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A8E404CE2B892329000994CF /* Project object */;
 }

@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct AEXML_ExperimentApp: App {
+    
+    let animals: Animals
+    
+    init() {
+        self.animals = Animals()
+        
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(animals)
         }
     }
 }
