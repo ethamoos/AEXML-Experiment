@@ -15,6 +15,7 @@
 		A8E404F62B89232C000994CF /* AEXML_ExperimentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E404F52B89232C000994CF /* AEXML_ExperimentUITests.swift */; };
 		A8E404F82B89232C000994CF /* AEXML_ExperimentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E404F72B89232C000994CF /* AEXML_ExperimentUITestsLaunchTests.swift */; };
 		A8E405062B892357000994CF /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = A8E405052B892357000994CF /* AEXML */; };
+		E4C81CFF2C487554009E1CDB /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C81CFE2C487554009E1CDB /* Animals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		A8E404F12B89232C000994CF /* AEXML ExperimentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AEXML ExperimentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8E404F52B89232C000994CF /* AEXML_ExperimentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEXML_ExperimentUITests.swift; sourceTree = "<group>"; };
 		A8E404F72B89232C000994CF /* AEXML_ExperimentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEXML_ExperimentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E4C81CFE2C487554009E1CDB /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				A8E404D92B892329000994CF /* AEXML_ExperimentApp.swift */,
 				A8E404DB2B892329000994CF /* ContentView.swift */,
+				E4C81CFE2C487554009E1CDB /* Animals.swift */,
 				A8E404DD2B89232C000994CF /* Assets.xcassets */,
 				A8E404DF2B89232C000994CF /* AEXML_Experiment.entitlements */,
 				A8E404E02B89232C000994CF /* Preview Content */,
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8E404DC2B892329000994CF /* ContentView.swift in Sources */,
+				E4C81CFF2C487554009E1CDB /* Animals.swift in Sources */,
 				A8E404DA2B892329000994CF /* AEXML_ExperimentApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
